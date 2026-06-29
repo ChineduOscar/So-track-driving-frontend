@@ -6,7 +6,13 @@ import Image from "next/image";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = ["Home", "About", "Services", "Location", "Contact"];
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Location", href: "/location" },
+    { name: "Contact", href: "/contact" },
+  ];
 
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
@@ -27,13 +33,13 @@ const Navbar = () => {
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
-                key={link}
-                href="#"
+              <Link
+                key={link.name}
+                href={link.href}
                 className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#333992] hover:bg-indigo-50 rounded-md transition-colors duration-150"
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             ))}
           </div>
 
@@ -104,14 +110,14 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white px-4 pb-4 pt-2 space-y-1">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
+            <Link
+              key={link.name}
+              href={link.href}
               className="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-colors"
               onClick={() => setMenuOpen(false)}
             >
-              {link}
-            </a>
+              {link.name}
+            </Link>
           ))}
           <div className="pt-2">
             <a
