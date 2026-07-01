@@ -23,10 +23,6 @@ const MissionVision = () => {
           </p>
         </div>
 
-        {/* Vertical divider on large screens, horizontal on mobile */}
-        <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-200" />
-        <div className="block lg:hidden border-t border-gray-200" />
-
         {/* Vision */}
         <div className="flex flex-col items-start">
           <div className="w-14 h-14 rounded-2xl bg-[#22c55e] flex items-center justify-center mb-5">
